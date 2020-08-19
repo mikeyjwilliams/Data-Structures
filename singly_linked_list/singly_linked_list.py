@@ -60,6 +60,24 @@ class LinkedList:
             return current_head.value
 
     def remove_tail(self):
-        current_head = self.head
-        self.head = current_head.next
-        # return
+        if not self.tail:
+            return None
+        current_node = self.head
+        # self.head = current_head.next
+
+        if current_node.next == None:
+            current_node = self.tail
+
+         # Remove Tail:
+        # Check if it's there
+        # General case:
+        # Start at head and iterate to the next-to-last node
+        # Stop when current_node.next == self.tail
+        # Save the current_tail value
+        # Set self.tail to current_node
+        # Set current_node.next to None
+        #
+        # List of 1 element:
+        # Save the current_tail.value
+        # Set self.tail to None
+        # Set self.head to None
