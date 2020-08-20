@@ -65,22 +65,25 @@ class LinkedList:
     # Remove Tail:
     def remove_tail(self):
         # Check if it's there
-        if not self.head:
-            return Node
-        if self.head is self.tail:
-            value = self.head
-        if self.head == self.tail:
-            value = self.head.get_value()
+        if not self.tail:
+            return None
+        # if self.head is self.tail:
+        #     value = self.head
+        if self.tail == self.head:
+            current_tail = self.tail
             # set tail to None
             self.head = None
             self.tail = None
-            return value
+            return current_tail.value
             # decrement
-        current = self.head
-        while new_tail.next_node is not self.tail:
-            new_tail = new_tail.next_node
-        self.tail = current
-        self.tail.
+        
+        node = self.head
+        while node.next_node != self.tail:
+            node = node.next_node
+        value = self.tail.value
+        self.tail = node
+        self.length = self.length -1
+        return value 
 
         # current_node = self.head
         # self.head = current_head.next_node
