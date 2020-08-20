@@ -1,9 +1,11 @@
 
 
 class Node:
-    def __init__(self, value, next=None):
+    def __init__(self, value, next_node=None):
+        # value at this linked list node
         self.value = value
-        self.next = next  # next node in the list
+        # reference to next node in the list
+        self.next_node = next_node
 
 
 class LinkedList:
@@ -26,11 +28,11 @@ class LinkedList:
             self.tail = new_tail
         # if there is a tail (general case):
         else:
-            # create a new node with the value we want to add, next = None
+            # create a new node with the value we want to add, next_node = None
             new_tail = Node(value, None)
-            # set current tail.next to the new node
+            # set current tail.next_node to the new node
             old_tail = self.tail
-            old_tail.next = new_tail
+            old_tail.next_node = new_tail
             # set self.tail to the new node
             self.tail = new_tail
         self.length += 1
@@ -44,7 +46,7 @@ class LinkedList:
 
         # list with one element
         if self.head == self.tail:
-            #  set self.head to current_head.next / None
+            #  set self.head to current_head.next_node / None
             current_head = self.head
             self.head = None
             # set tail to None
@@ -54,28 +56,43 @@ class LinkedList:
             return current_head.value
         else:
             current_head = self.head
-            self.head = current_head.next
+            self.head = current_head.next_node
             # return current_head.value
             self.length = self.length - 1
             return current_head.value
 
+    # Remove Tail:
     def remove_tail(self):
-        if not self.tail:
-            return None
-        current_node = self.head
-        # self.head = current_head.next
-
-        if current_node.next == None:
-            current_node = self.tail
-
-         # Remove Tail:
         # Check if it's there
+        new_tail = self.head
+        if not self.tail:  # checking if at tail of list.
+            return None
+        if self.head == self.tail:
+            #  set self.head to current_head.next_node / None
+            current_tail = self.tail
+            # set tail to None
+            self.head = None
+            self.tail = None
+            # decrement
+            self.length -= 1
+            return current_tail.value
+        while new_tail.next_node is not self.tail:
+            new_tail = new_tail.next_node
+            return new_tail
+        self.tail = new_tail
+        self.length -= 1
+        return new_tail.next_node.value
+
+        # current_node = self.head
+        # self.head = current_head.next_node
+
         # General case:
-        # Start at head and iterate to the next-to-last node
-        # Stop when current_node.next == self.tail
+
+        # Start at head and iterate to the next_node-to-last node
+        # Stop when current_node.next_node == self.tail
         # Save the current_tail value
         # Set self.tail to current_node
-        # Set current_node.next to None
+        # Set current_node.next_node to None
         #
         # List of 1 element:
         # Save the current_tail.value
