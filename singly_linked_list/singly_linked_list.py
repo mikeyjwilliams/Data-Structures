@@ -6,7 +6,8 @@ class Node:
         self.value = value
         # reference to next node in the list
         self.next_node = next_node
-
+    def get_value(self):
+        return self.value
 
 class LinkedList:
     def __init__(self):
@@ -64,24 +65,22 @@ class LinkedList:
     # Remove Tail:
     def remove_tail(self):
         # Check if it's there
-        new_tail = self.head
-        if not self.tail:  # checking if at tail of list.
-            return None
+        if not self.head:
+            return Node
+        if self.head is self.tail:
+            value = self.head
         if self.head == self.tail:
-            #  set self.head to current_head.next_node / None
-            current_tail = self.tail
+            value = self.head.get_value()
             # set tail to None
             self.head = None
             self.tail = None
+            return value
             # decrement
-            self.length -= 1
-            return current_tail.value
+        current = self.head
         while new_tail.next_node is not self.tail:
             new_tail = new_tail.next_node
-            return new_tail
-        self.tail = new_tail
-        self.length -= 1
-        return new_tail.next_node.value
+        self.tail = current
+        self.tail.
 
         # current_node = self.head
         # self.head = current_head.next_node
