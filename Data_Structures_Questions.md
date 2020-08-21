@@ -11,8 +11,10 @@ Answer the following questions for each of the data structures you implemented a
 4. What is the runtime complexity of `pop` using a linked list?
 
 5. What is the runtime complexity of `len` using a list?
+    - o(n)
 
 6. What is the runtime complexity of `len` using a linked list?
+    - O(n)
 
 ## Queue
 
