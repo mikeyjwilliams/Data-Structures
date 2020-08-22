@@ -64,17 +64,17 @@ class LinkedList:
 
     # Remove Tail:
     def remove_tail(self):
-        # Check if it's there
+        # Check if it's there a tail
         if not self.tail:
             return None
         # if self.head is self.tail:
         #     value = self.head
         if self.tail == self.head:
-            current_tail = self.tail
+            node = self.tail
             # set tail to None
             self.head = None
             self.tail = None
-            return current_tail.value
+            return node.value
             # decrement
         
         node = self.head
@@ -86,16 +86,16 @@ class LinkedList:
         self.length = self.length -1
         return value 
 
-
-    def add_to_head(self, value):
-        # if no head / empty list:
-        if self.head is None:
-            new_node = Node(value, None)
-            self.head = new_node
-            self.tail = new_node
-            self.length += 1
-        else:
-            new_node = Node(value, self.head)
+    #! Working on for later.
+    # def add_to_head(self, value):
+    #     # if no head / empty list:
+    #     if self.head is None:
+    #         new_node = Node(value, None)
+    #         self.head = new_node
+    #         self.tail = new_node
+    #         self.length += 1
+    #     else:
+    #         new_node = Node(value, self.head)
 
     # * add to head
     # is there a head
