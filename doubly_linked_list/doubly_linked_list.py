@@ -50,7 +50,7 @@ class DoublyLinkedList:
             # increment length by 1
             self.length += 1
 
- 
+
     """
     Removes the List's current head node, making the
     current head's next node the new head of the List.
@@ -102,7 +102,7 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_tail(self):
-         # if head not exists return none
+        # if head not exists return none
         if self.tail is None:
             return None
         # if list == 1
@@ -177,7 +177,7 @@ class DoublyLinkedList:
         # if head == tail point both to None
         # decrement length by 1
         # recurse check.
-        if self.length == 1:
+        elif self.length == 1:
             if self.head != node:
                 return None
             else:
@@ -186,14 +186,27 @@ class DoublyLinkedList:
                 self.length -= 1
                 return node
         # if removing from head
-        if self.head == node:
+        elif self.head == node:
             self.remove_from_head()
         # if removing from tail
-        if self.tail == node:
+        elif self.tail == node:
             self.remove_from_tail()
+        # while value != node
+        else: 
             
-        
+            # prev_node 
+            prev_node = node.prev
+
+            next_node = node.next
+            prev_node.next = node.next # next_node
+
+            next_node.prev = prev_node #! node.prev doesnt work but prev_node does?! >:Z
             
+            node.prev = None # pointer disconnect
+            node.next = None # pointer disconnect
+
+            self.length -= 1
+            return node
         
         
         
