@@ -31,15 +31,16 @@ class DoublyLinkedList:
         if self.head is None:
             # create new node
             new_node = ListNode(value)
-
+            # add new node to head   
             self.head = new_node
+            # add new node to tail
             self.tail = new_node
+            # increment length by 1
             self.length += 1
         else:
             # * at least one node in list
             # create node list
             new_node = ListNode(value)
-            
             new_node.next = self.head
             self.head.prev = new_node
 
@@ -131,25 +132,21 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
-        # check length if 0: return None
-        if self.length == 0:
+        if not self.head:
             return None
-        # check length if 1: return head value
-        if self.length == 1:
-            return self.head.value
         # start max value as the head.value
         current_max = self.head.value
         # set node currently on head
         current_node = self.head
         # iterate through list stop when hits None
-        while current_node is not None:
+        while current_node:
             # compare current_max to current node value update IF value > current_max
-            if current_max < current_node.value:
+            if current_node.value > current_max:
                 current_max = current_node.value
         # move node to forward to next node.    
             current_node = current_node.next
         # return max value
-        return current_max #! why is this here and not indented in?
+        return current_max
     '''
         get max: return max value in list
         if len == 0 return none
