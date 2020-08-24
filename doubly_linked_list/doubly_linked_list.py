@@ -21,6 +21,12 @@ class DoublyLinkedList:
     def __len__(self):
         return self.length
     
+    def get_length_value(self):
+         self.length_val = 0
+         node = self.head
+         while node is not None:
+             length_val += 1
+             node = node.next
     """
     Wraps the given value in a ListNode and inserts it 
     as the new head of the list. Don't forget to handle 
@@ -31,12 +37,13 @@ class DoublyLinkedList:
         if self.head is None:
             # create new node
             new_node = ListNode(value)
+            
             # add new node to head   
             self.head = new_node
             # add new node to tail
             self.tail = new_node
             # increment length by 1
-            self.length += 1
+            self.get_length_value()
         else:
             # * at least one node in list
             # create ListNode in new_node
@@ -191,27 +198,22 @@ class DoublyLinkedList:
         # if removing from tail
         elif self.tail == node:
             self.remove_from_tail()
-        # while value != node
         else: 
-            
             # prev_node 
-            prev_node = node.prev
+            node.prev.next = node.next
+            # prev_node = node.prev
 
-            next_node = node.next
-            prev_node.next = node.next # next_node
+            # next_node = node.next
+            # prev_node.next = node.next # next_node
 
-            next_node.prev = prev_node #! node.prev doesnt work but prev_node does?! >:Z
+            # next_node.prev = prev_node #! node.prev doesnt work but prev_node does?! >:Z
             
-            node.prev = None # pointer disconnect
-            node.next = None # pointer disconnect
+            # node.prev = None # pointer disconnect
+            # node.next = None # pointer disconnect
 
             self.length -= 1
             return node
         
-        
-        
-        
-
     """
     Finds and returns the maximum value of all the nodes 
     in the List.
