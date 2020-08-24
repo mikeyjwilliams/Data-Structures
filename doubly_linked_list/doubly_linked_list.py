@@ -125,7 +125,11 @@ class DoublyLinkedList:
     '''
 
     def delete(self, node):
-        # if  
+        # if  none return & return length for 0
+        if node is None:
+            return
+        self.length = self.length
+        # 
         pass
 
     """
