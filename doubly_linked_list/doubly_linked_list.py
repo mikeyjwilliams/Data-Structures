@@ -50,9 +50,7 @@ class DoublyLinkedList:
             # increment length by 1
             self.length += 1
 
-
-
-        
+ 
     """
     Removes the List's current head node, making the
     current head's next node the new head of the List.
@@ -127,6 +125,7 @@ class DoublyLinkedList:
     '''
 
     def delete(self, node):
+        # if  
         pass
 
     """
