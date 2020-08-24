@@ -39,13 +39,15 @@ class DoublyLinkedList:
             self.length += 1
         else:
             # * at least one node in list
-            # create node list
+            # create ListNode in new_node
             new_node = ListNode(value)
+            # head now points to ==> next new_node
             new_node.next = self.head
+            # new_node now points to ==> prev head
             self.head.prev = new_node
-
+            # new_node now pointing to ==> head
             self.head = new_node
-            
+            # increment length by 1
             self.length += 1
 
 
