@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Each ListNode holds a reference to its previous node
 as well as its next node in the List.
@@ -7,7 +8,6 @@ class ListNode:
         self.prev = prev
         self.value = value
         self.next = next
-            
 """
 Our doubly-linked list class. It holds references to 
 the list's head and tail nodes.
@@ -20,13 +20,13 @@ class DoublyLinkedList:
 
     def __len__(self):
         return self.length
-    
+
     def get_length_value(self):
-         self.length_val = 0
-         node = self.head
-         while node is not None:
-             length_val += 1
-             node = node.next
+        self.length_val = 0
+        node = self.head
+        while node is not None:
+            self.length_val += 1
+            node = node.next
     """
     Wraps the given value in a ListNode and inserts it 
     as the new head of the list. Don't forget to handle 
@@ -63,6 +63,7 @@ class DoublyLinkedList:
     current head's next node the new head of the List.
     Returns the value of the removed Node.
     """
+    #! NEED TO DO
     def remove_from_head(self):
         # if head not exists return none
         if self.head is None:
@@ -93,16 +94,14 @@ class DoublyLinkedList:
             new_node = ListNode(value)
             self.head = new_node
             self.tail = new_node
-            self.length += 1
+            
         else:
             new_node = ListNode(value)
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
-            self.length += 1
         
-        
-            
+        self.length += 1
     """
     Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
@@ -131,6 +130,7 @@ class DoublyLinkedList:
     Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List.
     """
+    #! NEED TO DO
     def move_to_front(self, node):
         pass
         
@@ -138,23 +138,24 @@ class DoublyLinkedList:
     Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List.
     """
+    
     def move_to_end(self, node):
-        #! get the node
-        # Node(posx): nodex.prev.next = nodex.next
-        # Node(posx): nodex.next.prev = nodex.prev
-        # O(n)
-        if node == self.head:
-            # set pointer 
-            node.next.next = node
-            self.head = node.next.next
+        # check list empty
+        if self.length == 0:
+            return None
+        # check if 1 item in list
+        # return none no where to move
+        if self.length == 1:
+            return None
+        else:
+            # save node that will be moving value
+            node_val = node.value
+            self.delete(node)
+            # move the node_val to the end
+            self.add_to_tail(node_val)
 
-        temp = self.head
 
-        while temp is not node:
-            temp = temp.next
 
-        temp.prev.next = temp.next
-        temp.next.prev = temp.prev
 
         #* Temp pointer for the node we are searching for
         #* O(1)
@@ -199,15 +200,16 @@ class DoublyLinkedList:
         elif self.tail == node:
             self.remove_from_tail()
         else: 
-            # prev_node 
+            # prev_node
             node.prev.next = node.next
+
             # prev_node = node.prev
 
             # next_node = node.next
             # prev_node.next = node.next # next_node
 
-            # next_node.prev = prev_node #! node.prev doesnt work but prev_node does?! >:Z
-            
+            # # next_node.prev = prev_node #! node.prev doesnt work but prev_node does?! >:Z
+
             # node.prev = None # pointer disconnect
             # node.next = None # pointer disconnect
 
