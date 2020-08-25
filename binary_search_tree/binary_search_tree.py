@@ -12,17 +12,63 @@ This part of the project comprises two days:
 class BSTNode:
     def __init__(self, value):
         self.value = value
-        self.left = None
-        self.right = None
+        self.left: BSTNode = None
+        self.right: BSTNode = None
 
+    '''
+    - compare target value to node.value
+    if value > node.value:
+    
+        go right
+        if node.right is None:
+            create the new node there
+        else:
+            do the same thing
+            insert value into node.right
+    else if value < node.value
+        go left
+        if node.left is None:
+            create node
+        else:
+            do the same thing
+            insert value
+    '''
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        if value > self.value:
+            if self.right is None:
+                new_node = BSTNode(value)
+                self.right = new_node
+            else:
+                self.right.insert(value)
+        if value < self.value:
+            if self.left is None:
+                self.left = BSTNode(value)
+            else:
+                self.left.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
         pass
+    # single el
+    # compare target value to node.value
+    # if target > node.value:
+        # go right
+        # if node.right is None:
+            # traverse tree not found
+            # return False
+        # else:
+        # do same thing
+        # check node.right.contains(target)
+    # else if target < node.value
+        # go left
+        # if node.left is none:
+            # create node
+        # else:
+            # do same thing
+            # compare left or right
+            # return node.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -63,23 +109,23 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-bst = BSTNode(1)
+# bst = BSTNode(1)
 
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
-bst.bft_print()
-bst.dft_print()
+# bst.bft_print()
+# bst.dft_print()
 
-print("elegant methods")
-print("pre order")
-bst.pre_order_dft()
-print("in order")
-bst.in_order_dft()
-print("post order")
-bst.post_order_dft()  
+# print("elegant methods")
+# print("pre order")
+# bst.pre_order_dft()
+# print("in order")
+# bst.in_order_dft()
+# print("post order")
+# bst.post_order_dft()  
