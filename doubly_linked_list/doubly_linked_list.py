@@ -43,7 +43,7 @@ class DoublyLinkedList:
             # add new node to tail
             self.tail = new_node
             # increment length by 1
-            self.get_length_value()
+            self.length += 1
         else:
             # * at least one node in list
             # create ListNode in new_node
@@ -56,17 +56,14 @@ class DoublyLinkedList:
             self.head = new_node
             # increment length by 1
             self.length += 1
-
-
     """
     Removes the List's current head node, making the
     current head's next node the new head of the List.
     Returns the value of the removed Node.
     """
-    #! NEED TO DO
     def remove_from_head(self):
         # if head not exists return none
-        if self.head is None:
+        if self.length == 0:
             return None
         # if list == 1
         if self.length == 1:
@@ -81,8 +78,6 @@ class DoublyLinkedList:
             self.head.prev = None
             self.length -= 1
             return head_val
-            
-            
     """
     Wraps the given value in a ListNode and inserts it 
     as the new tail of the list. Don't forget to handle 
@@ -124,8 +119,6 @@ class DoublyLinkedList:
             # self.tail.next = None
             self.length -= 1
             return tail_val
-            
-            
     """
     Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List.
@@ -166,9 +159,6 @@ class DoublyLinkedList:
             # move the node_val to the end
             self.add_to_tail(node_val)
 
-
-
-
         #* Temp pointer for the node we are searching for
         #* O(1)
 
@@ -189,7 +179,6 @@ class DoublyLinkedList:
     return node.value
     
     '''
-
     def delete(self, node):
         # if  none return & return length for 0
         if self.length == 0:
