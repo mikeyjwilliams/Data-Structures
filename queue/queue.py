@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(1, '../singly_linked_list')
-# from singly_linked_list import LinkedList
+from singly_linked_list import LinkedList
 
 """
 A queue is a data structure whose primary purpose is to store and
@@ -20,13 +20,21 @@ Stretch: What if you could only use instances of your Stack class to implement t
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = LinkedList()
     
     def __len__(self):
-        pass
+        return self.size
 
     def enqueue(self, value):
-        pass
+        self.size += 1
+        self.storage.add_to_tail(value)
+
 
     def dequeue(self):
-        pass
+        if self.size == 0:
+            return None
+        if self.size == 1:
+
+        else:
+            self.size -= 1
+            self.storage.remove_tail()
