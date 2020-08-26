@@ -32,9 +32,27 @@ class Queue:
 
     def dequeue(self):
         if self.size == 0:
+            # print(self.size, ' none should be here')
             return None
-        if self.size == 1:
+        # if self.size == 1:
 
+        #     self.storage.remove_tail()
         else:
             self.size -= 1
             self.storage.remove_tail()
+
+q = Queue()
+q.enqueue(100)
+print('100 && 1 == ', q.size)
+q.enqueue(101)
+print('101 && 2 == ', q.size)
+q.enqueue(105)
+print('105 && 3 == ', q.size)
+q.dequeue()
+print('- 100 && 2 == ', q.size)
+q.dequeue()
+print('1 == ', q.size)
+q.dequeue()
+print('0 == ', q.size)
+q.dequeue()
+
