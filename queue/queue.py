@@ -34,24 +34,24 @@ class Queue:
             # print(self.size, ' none should be here')
             return None
         if self.size == 1:
-
-            self.storage.remove_tail()
+            self.size -= 1
+            return self.storage.remove_head()
         else:
             self.size -= 1
-            self.storage.remove_tail()
+            return self.storage.remove_head()
 
-q = Queue()
-q.enqueue(100)
-print('100 && 1 == ', q.size)
-q.enqueue(101)
-print('101 && 2 == ', q.size)
-q.enqueue(105)
-print('105 && 3 == ', q.size)
-q.dequeue()
-print('- 100 && 2 == ', q.size)
-q.dequeue()
-print('1 == ', q.size)
-q.dequeue()
-print('0 == ', q.size)
-q.dequeue()
+# q = Queue()
+# q.enqueue(100)
+# print('100 && 1 == ', q.size)
+# q.enqueue(101)
+# print('101 && 2 == ', q.size)
+# q.enqueue(105)
+# print('105 && 3 == ', q.size)
+# q.dequeue()
+# print('- 100 && 2 == ', q.size)
+# q.dequeue()
+# print('1 == ', q.size)
+# q.dequeue()
+# print('0 == ', q.size)
+# q.dequeue()
 
