@@ -9,6 +9,8 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+from stack import Stack
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -72,11 +74,41 @@ class BSTNode:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+
+    # start at root
+        if self.right is None:
+            # already at most right node
+            return self.value
+        else:
+            # keep going right until cant anymore
+            # return that value
+            return self.right.get_max()
+
+        #iterate get_max()
+        # cur_node = self
+        # while cur_node.right is not None:
+        #     cur_node = cur_node.right
+
+        # # return 'base case'
+        # return cur_node.value
+
 
     # Call the function `fn` on the value of each node
+    # linear O(n)
     def for_each(self, fn):
         pass
+        # start at root
+        # go left check
+        # base case...call back
+        fn(self.value)
+        # check left
+        if self.left is not None:
+            # go left
+            self.left.for_each(fn)
+        # check right
+        if self.right is not None:
+            # go right
+            self.right.for_each(fn)
 
     # Part 2 -----------------------
 
@@ -90,10 +122,19 @@ class BSTNode:
     def bft_print(self):
         pass
 
+
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
         pass
+        # start at root
+        # push onto stack
+
+        # hit leaf ... backtrack
+        # while stack is not empty:
+        # push all the children (right then left)
+        # do the thing w/ current node
+        #
 
     # Stretch Goals -------------------------
     # Note: Research may be required
