@@ -1,5 +1,4 @@
-import sys
-sys.path.insert(1, '../singly_linked_list')
+
 from singly_linked_list import LinkedList
 
 """
@@ -34,9 +33,9 @@ class Queue:
         if self.size == 0:
             # print(self.size, ' none should be here')
             return None
-        # if self.size == 1:
+        if self.size == 1:
 
-        #     self.storage.remove_tail()
+            self.storage.remove_tail()
         else:
             self.size -= 1
             self.storage.remove_tail()

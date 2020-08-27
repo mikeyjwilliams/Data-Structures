@@ -48,19 +48,19 @@ class LinkedList:
         # list with one element
         if self.head == self.tail:
             #  set self.head to current_head.next_node / None
-            current_head = self.head
+            current_head = self.head.value
             self.head = None
             # set tail to None
             self.tail = None
             # decrement
             self.length -= 1
-            return current_head.value
+            return current_head
         else:
-            current_head = self.head
+            current_head = self.head.value
             self.head = current_head.next_node
             # return current_head.value
             self.length = self.length - 1
-            return current_head.value
+            return current_head
 
     # Remove Tail:
     def remove_tail(self):
