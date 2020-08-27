@@ -10,6 +10,9 @@ This part of the project comprises two days:
    on the BSTNode class.
 """
 from stack import Stack
+from stack import Stack
+
+
 
 class BSTNode:
     def __init__(self, value):
@@ -36,6 +39,7 @@ class BSTNode:
             insert value
     '''
     # Insert the given value into the tree
+
     def insert(self, value):
         if value > self.value:
             if self.right is None:
@@ -58,24 +62,24 @@ class BSTNode:
     # if target > node.value:
         # go right
         # if node.right is None:
-            # traverse tree not found
-            # return False
+        # traverse tree not found
+        # return False
         # else:
         # do same thing
         # check node.right.contains(target)
     # else if target < node.value
         # go left
         # if node.left is none:
-            # create node
+        # create node
         # else:
-            # do same thing
-            # compare left or right
-            # return node.left.contains(target)
+        # do same thing
+        # compare left or right
+        # return node.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
 
-    # start at root
+        # start at root
         if self.right is None:
             # already at most right node
             return self.value
@@ -84,7 +88,7 @@ class BSTNode:
             # return that value
             return self.right.get_max()
 
-        #iterate get_max()
+        # iterate get_max()
         # cur_node = self
         # while cur_node.right is not None:
         #     cur_node = cur_node.right
@@ -92,9 +96,9 @@ class BSTNode:
         # # return 'base case'
         # return cur_node.value
 
-
     # Call the function `fn` on the value of each node
     # linear O(n)
+
     def for_each(self, fn):
         pass
         # start at root
@@ -114,27 +118,65 @@ class BSTNode:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-    def in_order_print(self):
-        pass
+    def in_order_print(self, node):
+        
+        if self.left:
+            self.left.in_order_print(node)
+        print(self.value)
+        if self.right:
+            self.right.in_order_print(node) 
+            
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
-        pass
-
-
+        stack = Stack # FILO means we 
+        
+        # need to check each level
+        # push node at level n 
+        
+        stack.push()
+        
+        
+        
+        
+        
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
-    def dft_print(self):
-        pass
-        # start at root
-        # push onto stack
 
-        # hit leaf ... backtrack
-        # while stack is not empty:
-        # push all the children (right then left)
-        # do the thing w/ current node
-        #
+    def dft_print(self, node):
+        
+        stack = Stack()
+        curr = node
+        while curr:
+            print(curr.value)               
+            if curr.right:                                       
+                stack.push(curr.right)
+            if curr.left:                                        
+                stack.push(curr.left)
+            curr = stack.pop()
+            print(curr.value)               
+                                          
+# first pass
+# Stack FIFO
+
+# left
+# right
+
+# pops left
+
+# second pass pushes on right then left
+# Stack FIFO
+# left
+# right
+# right
+
+# third pass pushes on right then left
+# Stack FIFO
+# left
+# right
+# right
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -147,18 +189,19 @@ class BSTNode:
     def post_order_dft(self):
         pass
 
+
 """
 This code is necessary for testing the `print` methods
 """
-# bst = BSTNode(1)
+bst = BSTNode(1)
 
-# bst.insert(8)
-# bst.insert(5)
-# bst.insert(7)
-# bst.insert(6)
-# bst.insert(3)
-# bst.insert(4)
-# bst.insert(2)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
 
 # bst.bft_print()
 # bst.dft_print()
@@ -166,7 +209,7 @@ This code is necessary for testing the `print` methods
 # print("elegant methods")
 # print("pre order")
 # bst.pre_order_dft()
-# print("in order")
-# bst.in_order_dft()
+print("in order")
+bst.in_order_print(bst)
 # print("post order")
-# bst.post_order_dft()  
+# bst.post_order_dft()
