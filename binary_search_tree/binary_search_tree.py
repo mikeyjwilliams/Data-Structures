@@ -151,7 +151,7 @@ class BSTNode:
 # right        
 
 # pop left
-       
+
 # curr left print left
 
 # Queue
@@ -167,7 +167,7 @@ class BSTNode:
 # left 
 # right
 
-   
+
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
 
@@ -182,7 +182,7 @@ class BSTNode:
             if curr.left:                                        
                 stack.push(curr.left)
             curr = stack.pop()
-                                          
+
 # first pass
 # Stack FIFO
 
