@@ -10,7 +10,7 @@ This part of the project comprises two days:
    on the BSTNode class.
 """
 from stack import Stack
-from stack import Stack
+from queue import Queue
 
 
 
@@ -130,18 +130,44 @@ class BSTNode:
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
-    def bft_print(self):
-        stack = Stack # FILO means we 
-        
-        # need to check each level
-        # push node at level n 
-        
-        stack.push()
-        
-        
-        
-        
-        
+    def bft_print(self, node):
+        queue = Queue() # FIFO means we 
+        curr = node
+        while curr:
+            print(curr.value)               
+            if curr.right:                                       
+                queue.enqueue(curr.right)
+            if curr.left:                                        
+                queue.enqueue(curr.left)
+            curr = queue.dequeue()
+
+# curr node print value
+# if left: push left
+# if right push right
+
+
+# Queue
+# left      
+# right        
+
+# pop left
+       
+# curr left print left
+
+# Queue
+# right
+# left
+# right 
+
+# pop right
+
+# Queue
+# left
+# right
+# left 
+# right
+
+   
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
 
@@ -156,7 +182,6 @@ class BSTNode:
             if curr.left:                                        
                 stack.push(curr.left)
             curr = stack.pop()
-            print(curr.value)               
                                           
 # first pass
 # Stack FIFO
@@ -193,23 +218,23 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-bst = BSTNode(1)
+# bst = BSTNode(1)
 
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
-# bst.bft_print()
-# bst.dft_print()
+# # bst.bft_print()
+# # bst.dft_print()
 
-# print("elegant methods")
-# print("pre order")
-# bst.pre_order_dft()
-print("in order")
-bst.in_order_print(bst)
-# print("post order")
-# bst.post_order_dft()
+# # print("elegant methods")
+# # print("pre order")
+# # bst.pre_order_dft()
+# print("in order")
+# bst.in_order_print(bst)
+# # print("post order")
+# # bst.post_order_dft()
