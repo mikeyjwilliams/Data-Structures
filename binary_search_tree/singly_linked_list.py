@@ -48,44 +48,43 @@ class LinkedList:
         # list with one element
         if self.head == self.tail:
             #  set self.head to current_head.next_node / None
-            current_head = self.head.value
+            current_head = self.head
             self.head = None
             # set tail to None
             self.tail = None
             # decrement
             self.length -= 1
-            return current_head
+            return current_head.value
         else:
             current_head = self.head
-            self.head = current_head.next_node.value
+            self.head = current_head.next_node
             # return current_head.value
             self.length = self.length - 1
-            return current_head
+            return current_head.value
 
     # Remove Tail:
     def remove_tail(self):
         # Check if it's there a tail
-        if self.length == 0:
+        if not self.tail:
             return None
         # if self.head is self.tail:
         #     value = self.head
-        if self.length == 1:
+        if self.tail == self.head:
             node = self.tail
             # set tail to None
             self.head = None
             self.tail = None
             return node.value
             # decrement
-        else:
-
-            node = self.head
-            while node.next_node != self.tail:
-                node = node.next_node
-            # once exit while loop current_node pointing to node
-            value = self.tail.value
-            self.tail = node
+        
+        node = self.head
+        while node.next_node != self.tail:
+            node = node.next_node
+        # once exit while loop current_node pointing to node
+        value = self.tail.value
+        self.tail = node
         self.length = self.length -1
-        return value
+        return value 
 
     #! Working on for later.
     # def add_to_head(self, value):
