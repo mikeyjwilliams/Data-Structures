@@ -56,25 +56,32 @@ class BSTNode:
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
-    # single el
-    # compare target value to node.value
-    # if target > node.value:
-        # go right
-        # if node.right is None:
-        # traverse tree not found
-        # return False
-        # else:
-        # do same thing
-        # check node.right.contains(target)
-    # else if target < node.value
-        # go left
-        # if node.left is none:
-        # create node
-        # else:
-        # do same thing
-        # compare left or right
-        # return node.left.contains(target)
+    # single element returns crom contains.
+        # compare target value to node.value
+        if self.value == target:
+            return target
+        # if target > node.value:
+        if target > self.value:
+            # go right
+            # if node.right is None:
+            if self.right is None:
+            # traverse tree not found
+                return False
+            # return False
+            else:
+            # repeat
+                return self.right.contains(target)
+            # check node.right.contains(target)
+        # else if target < node.value
+        elif target < self.value:
+            # go left
+            # if node.left is none:
+            if self.left is None:
+                return False
+            else:
+                # else:
+                # return node.left.contains(target)
+                return self.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
@@ -100,7 +107,6 @@ class BSTNode:
     # linear O(n)
 
     def for_each(self, fn):
-        pass
         # start at root
         # go left check
         # base case...call back
@@ -119,7 +125,7 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        
+        # check left
         if self.left:
             self.left.in_order_print(node)
         print(self.value)
@@ -218,22 +224,22 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-# bst = BSTNode(1)
+bst = BSTNode(1)
 
-# bst.insert(8)
-# bst.insert(5)
-# bst.insert(7)
-# bst.insert(6)
-# bst.insert(3)
-# bst.insert(4)
-# bst.insert(2)
+bst.insert(8)
+bst.insert(5)
+bst.insert(7)
+bst.insert(6)
+bst.insert(3)
+bst.insert(4)
+bst.insert(2)
 
-# # bst.bft_print()
-# # bst.dft_print()
+# bst.bft_print()
+# bst.dft_print()
 
-# # print("elegant methods")
-# # print("pre order")
-# # bst.pre_order_dft()
+print("elegant methods")
+# print("pre order")
+# bst.pre_order_dft()
 # print("in order")
 # bst.in_order_print(bst)
 # # print("post order")
